@@ -30,16 +30,6 @@ Welcome to the **Cybersecurity Resources Repository**, your comprehensive collec
 - Access to influential and groundbreaking research papers and publications in the field of cybersecurity.
 - Summaries and reviews of key research findings.
 
-## 🌐 Communities and Forums
-
-- Links to vibrant and active online communities where you can discuss and learn about the latest in cybersecurity.
-- Forums and discussion boards for peer support and networking.
-
-## 📰 News and Updates
-
-- Resources to stay updated on the latest cybersecurity threats, vulnerabilities, and news.
-- Newsletters, blogs, and RSS feeds from leading cybersecurity experts and organizations.
-
 ## 🤝 Contributing
 
 We welcome and encourage contributions! If you have a resource that you believe would be a valuable addition to this repository, please submit a pull request or open an issue with your suggestion. Let’s collaborate to build a repository that benefits the entire cybersecurity community.
