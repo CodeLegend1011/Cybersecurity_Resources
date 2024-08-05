@@ -19,7 +19,7 @@ The [Open Source Security Testing Methodology Manual](https://www.isecom.org/) (
 ## Resources
 
 - [OSSTMM Main Website](https://www.isecom.org/)
-- [ISECOM Publications](https://www.isecom.org/research/)
+- [ISECOM Publications](https://www.isecom.org/OSSTMM.3.pdf)
 
 ## Conclusion
 
