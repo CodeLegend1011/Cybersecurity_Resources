@@ -19,7 +19,7 @@ The [OWASP Web Security Testing Guide](https://owasp.org/www-project-web-securit
 ## Resources
 
 - [OWASP WSTG GitHub Repository](https://github.com/OWASP/wstg)
-- [OWASP Main Website](https://owasp.org)
+- [OWASP Main Website](https://owasp.org/www-project-web-security-testing-guide/)
 
 ## Conclusion
 
