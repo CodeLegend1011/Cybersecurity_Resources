@@ -30,7 +30,7 @@ These rules, formulated under **Section 43A** of the IT Act, provide guidelines 
 - Consent is required before collecting and processing personal data.
 
 **Resources:**
-- [SPDI Rules, 2011](https://www.meity.gov.in/content/notification-0)
+- [SPDI Rules, 2011](https://www.meity.gov.in/writereaddata/files/GSR313E_10511%281%29.pdf)
 
 ---
 
@@ -59,7 +59,7 @@ Several provisions of the **Indian Penal Code (IPC)** are used to address cyberc
 - **Section 468 & 471**: Forgery for the purpose of cheating.
 
 **Resources:**
-- [Indian Penal Code](https://www.indiacode.nic.in/handle/123456789/2263?locale=en)
+- [Indian Penal Code](https://indiankanoon.org/doc/1569253/)
 
 ---
 
@@ -87,7 +87,7 @@ The **RBI** has issued cybersecurity guidelines for banks and financial institut
 - Risk assessments: Regular audits and vulnerability assessments are mandatory.
 
 **Resources:**
-- [RBI Cybersecurity Guidelines](https://www.rbi.org.in/)
+- [RBI Cybersecurity Guidelines](https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=10435&Mode=0)
 
 ---
 
