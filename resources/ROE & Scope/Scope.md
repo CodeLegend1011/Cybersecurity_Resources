@@ -81,6 +81,58 @@ It is essential to gather detailed information about stakeholders involved in th
 
 ---
 
+## API Testing
+
+When performing penetration testing, API endpoints represent a critical attack vector. Scoping APIs requires detailed planning around the specific technologies in use and their interactions. Below are examples of different types of APIs and how they should be scoped.
+
+### 1. **SOAP (Simple Object Access Protocol)**
+- **Description:** SOAP is a protocol for exchanging structured information in web services. It relies on XML for message formatting.
+- **Scoping Considerations:**
+  - Analyze WSDL (Web Services Description Language) files for vulnerabilities.
+  - Test for improper input validation in SOAP requests.
+  - Test for XML external entity (XXE) attacks and data leakage.
+  - Ensure proper authentication and authorization in API calls.
+  - **SOAP**: [W3C SOAP Specification](https://www.w3.org/TR/soap/)
+
+### 2. **Swagger (OpenAPI)**
+- **Description:** Swagger/OpenAPI is a framework for defining and documenting RESTful APIs.
+- **Scoping Considerations:**
+  - Review the Swagger JSON or YAML definition for exposed endpoints.
+  - Test for insecure HTTP methods (e.g., PUT, DELETE).
+  - Test for improper access control on sensitive endpoints.
+  - Ensure API authentication (e.g., OAuth) is secure.
+  - **Swagger**: [Swagger Official Site](https://swagger.io/)
+  -  [OpenAPI Specification GitHub Repository](https://github.com/OAI/OpenAPI-Specification)
+
+### 3. **GraphQL**
+- **Description:** GraphQL is a query language for APIs, allowing clients to request specific data from the server.
+- **Scoping Considerations:**
+  - Test for insecure queries that may allow unauthorized data retrieval.
+  - Ensure there are limits on query depth and complexity to avoid denial-of-service attacks.
+  - Check for broken authentication and authorization mechanisms.
+  - Test for introspection leaks that expose sensitive schema details.
+  - **GraphQL**: [GraphQL Learn](https://graphql.org/learn/)
+
+### 4. **WADL (Web Application Description Language)**
+- **Description:** WADL is used for describing RESTful services, much like WSDL for SOAP services.
+- **Scoping Considerations:**
+  - Review the WADL for exposed methods and their security configurations.
+  - Test for injection vulnerabilities in REST endpoints.
+  - Ensure the secure transmission of data over HTTPs.
+  - Verify the proper implementation of API authentication.
+  - **WADL**: [W3C WADL Submission](https://www.w3.org/submissions/wadl/)
+
+### 5. **WSDL (Web Services Description Language)**
+- **Description:** WSDL describes web service functionality and the associated requests/responses.
+- **Scoping Considerations:**
+  - Test for XML injection and XXE vulnerabilities.
+  - Verify the robustness of error handling and input validation.
+  - Ensure that the web service follows secure SOAP message exchanges.
+  - Check for misconfigurations that may expose sensitive information.
+  - **WSDL**: [W3C WSDL 2.0 Primer](https://www.w3.org/TR/wsdl20-primer/)
+
+---
+
 ## Strategy: Unknown vs. Known Environment Testing
 
 - **Unknown Environment Testing:**  
