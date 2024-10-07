@@ -33,7 +33,7 @@ The [OSINT Framework](https://osintframework.com/) is an open-source project tha
 
 ---
 
-### 1. **SpiderFoot**
+### 2. **SpiderFoot**
 
 **SpiderFoot** is a powerful OSINT tool used to automate the process of gathering intelligence from multiple public sources about a target. It supports integration with more than 100 data sources, including domain names, IP addresses, email addresses, and more.
 
@@ -82,7 +82,7 @@ print(response.json())
 
 ---
 
-### 2. **Recon-ng**
+### 3. **Recon-ng**
 
 **Recon-ng** is a powerful reconnaissance framework modeled after Metasploit. It automates the process of gathering information through various modules, allowing for efficient OSINT collection.
 
@@ -129,7 +129,7 @@ run
 
 ---
 
-### 3. **theHarvester**
+### 4. **theHarvester**
 
 **theHarvester** is a simple yet effective tool for gathering email addresses, subdomains, IPs, and URLs using search engines and public sources. It's commonly used to enumerate potential attack vectors.
 
@@ -157,7 +157,7 @@ This command will search Google for the domain `example.com` and return up to 50
 
 ---
 
-### 4. **Maltego**
+### 5. **Maltego**
 
 **Maltego** is a sophisticated graphical link analysis tool that connects data from numerous sources to reveal relationships between people, domains, email addresses, and more. It’s ideal for visualizing connections during OSINT operations.
 
@@ -178,7 +178,7 @@ You will need to register for an account and log in to the interface to start vi
 
 ---
 
-### 5. **Shodan**
+### 6. **Shodan**
 
 **Shodan** is an invaluable search engine for finding devices connected to the internet. It helps gather information about servers, IoT devices, cameras, and other internet-exposed services.
 
@@ -213,7 +213,7 @@ for result in results['matches']:
 
 ---
 
-### 6. **Amass**
+### 7. **Amass**
 
 **Amass** is a powerful tool for in-depth passive reconnaissance of DNS. It can help map out external network resources and subdomains belonging to a target organization.
 
@@ -239,6 +239,363 @@ amass enum -d example.com
 This will enumerate subdomains of `example.com` using passive methods.
 
 [Amass Documentation](https://github.com/OWASP/Amass)
+
+---
+
+### 8. nslookup
+
+`nslookup` is a network administration command-line tool used for querying the Domain Name System (DNS) to obtain domain name or IP address mapping, or other DNS records.
+
+### Usage:
+
+```bash
+nslookup example.com
+```
+
+This command will query the DNS for `example.com` and return the associated IP address.
+
+---
+
+### 9. dnslookup
+
+`dnslookup` is another tool used for DNS lookups. It provides detailed information about the domain’s DNS records, including `A`, `MX`, `NS`, and other record types.
+
+### Usage:
+
+```bash
+dnslookup example.com
+```
+
+This will return DNS records for the target domain.
+
+---
+
+### 10. dig
+
+`dig` (Domain Information Groper) is a powerful tool for DNS queries. It is often used to query DNS name servers and to troubleshoot DNS problems.
+
+### Usage:
+
+```bash
+dig example.com
+```
+
+This will return detailed DNS information for `example.com`, including `A`, `MX`, `NS` records, and more.
+
+---
+
+### 11. whois
+
+`whois` is used to retrieve registration details about domain names, IP addresses, or autonomous system numbers from a public database.
+
+### Usage:
+
+```bash
+whois example.com
+```
+
+This will display information about the owner of `example.com`, including registration details, contact information, and more.
+
+---
+
+
+### 12. **host Command**
+The `host` command is a simple utility used for performing DNS lookups. It allows users to query different types of DNS records such as A, MX, NS, and more.
+
+#### Example:
+```bash
+host example.com
+```
+This will return the IP address associated with the domain `example.com`.
+
+To query a specific record type, such as an MX (Mail Exchange) record:
+```bash
+host -t MX example.com
+```
+This will return the mail servers for `example.com`.
+
+---
+
+### 13. **Reverse DNS (rDNS)**
+Reverse DNS (rDNS) is the process of resolving an IP address back to a domain name. This is the opposite of the usual DNS lookup, which resolves a domain name to an IP address. The `-x` flag is used for reverse DNS lookups with utilities like `host` and `dig`.
+
+#### Example with `host`:
+```bash
+host 8.8.8.8
+```
+This returns the domain name for Google's public DNS server `8.8.8.8`.
+
+#### Example with `dig`:
+```bash
+dig -x 8.8.8.8
+```
+This command returns the PTR record, showing the domain associated with the IP address.
+
+---
+
+### 14. **HSRP (Hot Standby Router Protocol)**
+HSRP is a Cisco protocol that provides high availability by allowing routers to back each other up in case one fails. It is not directly related to DNS, but it’s often used in network setups to ensure redundancy.
+
+- HSRP allows two or more routers to share an IP address, with one router being the "active" router that handles traffic, and another acting as a "standby" in case the active router fails.
+- HSRP is commonly used in large enterprise networks to minimize downtime.
+
+While HSRP isn’t directly queryable with commands like `host` or `dig`, understanding how it works is important for network redundancy and resilience.
+
+---
+
+### 15. **Using `-x` Flag for Reverse DNS Lookups**
+The `-x` flag is used with DNS lookup tools like `dig` and `host` to perform reverse DNS queries, which are useful when you want to determine the domain name associated with an IP address.
+
+#### Example with `host`:
+```bash
+host -x 8.8.8.8
+```
+This returns the PTR (Pointer) record that maps the IP address to the domain name.
+
+#### Example with `dig`:
+```bash
+dig -x 8.8.8.8
+```
+This will also return the PTR record, showing the domain associated with the IP address `8.8.8.8`.
+
+---
+
+# SSL Tools and Cryptographic Flaws
+
+## 1. SSL Tools
+
+| **Tool**      | **Description**                                                         | **Recon, Exploitation, or Utility** |
+|---------------|-------------------------------------------------------------------------|-------------------------------------|
+| **sslscan**   | Queries SSL services to determine what cyphers are supported             | Reconnaissance                      |
+| **ssldump**   | Analyze and decode SSL traffic                                           | Exploitation                        |
+| **sslh**      | Running multiple services on port 443                                    | Utility                             |
+| **sslsplit**  | Enable Man-in-the-Middle (MitM) attacks on SSL encrypted network connections | Exploitation                    |
+| **sslyze**    | Analyze the SSL configuration of a server by connecting to it            | Reconnaissance                      |
+
+## 2. Cryptographic Flaws and Weak Implementations
+
+Digital certificates contain a wealth of information that can help identify cryptographic flaws or weak implementations. Information often found within digital certificates includes:
+
+- **Certificate Serial Number**
+- **Subject Common Name**
+- **Uniform Resource Identifier (URI)**
+- **Organization Name**
+- **Online Certificate Status Protocol (OCSP) Information**
+- **Certificate Revocation List (CRL) URI**
+
+These attributes can reveal weaknesses in encryption or configuration, helping to identify vulnerable services.
+
+### Common SSL Vulnerabilities:
+- **Weak Cipher Suites**: Use of outdated cryptographic algorithms such as SSLv2 and SSLv3.
+- **Expired or Revoked Certificates**: Certs that have expired or been added to a revocation list (CRL) are considered insecure.
+- **Misconfigured Certificates**: Issues such as incorrect subject common name or mismatched certificate chain.
+
+### Certificate Transparency
+
+Certificate Transparency is a framework that provides a public log of issued certificates to make it easier to detect fraudulent or misissued certificates. This is an essential part of securing digital communication.
+
+Check out Certificate Transparency logs here:
+[https://certificate.transparency.dev/](https://certificate.transparency.dev/)
+
+### Tools for Certificate Transparency and SSL Reconnaissance:
+
+- **crt.sh**: A tool to search for SSL/TLS certificates issued for a domain. It is part of the Certificate Transparency project and helps with tracking certificate issuance.
+
+  Example use case: 
+  ```bash
+  curl https://crt.sh/?q=example.com
+  ```
+
+- **Censys.io**: Another tool to search for SSL certificates across the internet.
+
+---
+
+# Social Media Scraping & PII
+
+## 1. Overview
+
+Social media scraping refers to the process of extracting data from social media platforms using automated tools or APIs. This data may include public posts, images, comments, user profiles, and, in some cases, personally identifiable information (PII).
+
+**PII (Personally Identifiable Information)** refers to any data that can potentially identify a specific individual, such as:
+- Full Name
+- Email Address
+- Phone Number
+- IP Address
+- Social Security Number
+- Location Data (Geotags)
+
+Scraping social media data can have legitimate purposes, such as research, marketing, and monitoring brand sentiment. However, gathering PII without consent can lead to legal and ethical issues.
+
+## 2. Common Social Media Scraping Techniques
+
+1. **API-Based Scraping**: Many social media platforms provide APIs to developers that allow for structured access to user data. For example:
+   - **Twitter API**
+   - **Facebook Graph API**
+   - **LinkedIn API**
+
+2. **HTML Parsing**: For sites that don't provide APIs or for public scraping, tools can be used to parse HTML and extract information. Libraries like **BeautifulSoup** and **Scrapy** in Python are commonly used.
+
+3. **Automated Browsers**: Tools like **Selenium** can automate browsers to navigate and scrape data that is dynamically generated via JavaScript.
+
+## 3. Tools for Social Media Scraping
+
+### 1. **BeautifulSoup (Python)**
+- A Python library for parsing HTML and XML documents. It is commonly used for web scraping projects and can handle various social media platforms.
+  
+  Example code:
+  ```python
+  from bs4 import BeautifulSoup
+  import requests
+
+  url = 'https://twitter.com/username'
+  response = requests.get(url)
+  soup = BeautifulSoup(response.text, 'html.parser')
+
+  # Extracting user tweets
+  tweets = soup.find_all('div', {'class': 'tweet'})
+  for tweet in tweets:
+      print(tweet.text)
+  ```
+
+### 2. **Selenium**
+- Selenium is a browser automation tool used for scraping dynamic content from websites like social media platforms.
+
+  Example code:
+  ```python
+  from selenium import webdriver
+
+  driver = webdriver.Chrome(executable_path='/path/to/chromedriver')
+  driver.get('https://twitter.com/username')
+
+  tweets = driver.find_elements_by_class_name('tweet-text')
+  for tweet in tweets:
+      print(tweet.text)
+  driver.quit()
+  ```
+
+### 3. **Twint (For Twitter)**
+- **Twint** is an advanced Twitter scraping tool written in Python that doesn't require Twitter's API. It can scrape user data, tweets, followers, and more.
+
+  Example command to scrape tweets:
+  ```bash
+  twint -u username --limit 100 --output tweets.csv
+  ```
+
+### 4. **Scrapy**
+- A fast high-level web scraping and web crawling framework for Python, widely used to extract data from websites.
+
+  Example:
+  ```python
+  import scrapy
+
+  class TwitterSpider(scrapy.Spider):
+      name = "twitter_spider"
+      start_urls = ['https://twitter.com/username']
+
+      def parse(self, response):
+          for tweet in response.css('div.tweet'):
+              yield {
+                  'text': tweet.css('p.tweet-text::text').get(),
+                  'date': tweet.css('span._timestamp::attr(data-time)').get(),
+              }
+  ```
+
+## 4. Sites and PII Collection
+
+### **Common Social Media Sites for Scraping**:
+
+1. **Twitter**: Public tweets, follower lists, geotags.
+2. **Facebook**: Public posts, events, and user profiles via Graph API.
+3. **LinkedIn**: Public profiles, connections, job listings.
+4. **Instagram**: Public posts, hashtags, comments.
+5. **Reddit**: Public posts, comment threads.
+6. **YouTube**: Video metadata, comments, and channel information.
+
+### **Example Data Points Collected**:
+- **Username**: Publicly available handle or name used on the platform.
+- **Bio/Description**: Short descriptions or bios provided by the user.
+- **Number of Followers/Following**: Useful for analytics.
+- **Location**: If publicly available or geotagged.
+- **Post Frequency**: Analyzing user activity.
+- **Post Content**: Extracting text, images, and videos.
+- **Hashtags**: Common tags associated with topics.
+
+---
+
+## Record Types
+
+When using tools like `nslookup`, `dnslookup`, and `dig`, understanding the different DNS record types is crucial for performing accurate reconnaissance. Below are descriptions of common DNS record types, along with examples of how to query them using the aforementioned commands.
+
+### 1. **NS (Name Server Record)**
+The NS record specifies the authoritative name servers for a domain. These servers are responsible for providing the IP addresses of a domain's records.
+
+#### Example Command:
+```bash
+dig example.com NS
+```
+
+This command will return the name servers for `example.com`.
+
+---
+
+### 2. **MX (Mail Exchange Record)**
+The MX record specifies the mail servers responsible for receiving emails on behalf of the domain. Each MX record includes a priority value that indicates the order in which mail servers should be used.
+
+#### Example Command:
+```bash
+dig example.com MX
+```
+
+This will return the mail servers for `example.com`.
+
+---
+
+### 3. **TXT (Text Record)**
+TXT records are used to store arbitrary text in DNS records. They are often used for verification purposes or to contain security information like SPF (Sender Policy Framework) or DKIM (DomainKeys Identified Mail).
+
+#### Example Command:
+```bash
+dig example.com TXT
+```
+
+This will return the text records for `example.com`, often used for domain ownership verification or email security.
+
+---
+
+### 4. **A (Address Record)**
+The A record maps a domain name to an IPv4 address. It is one of the most common DNS records used to direct traffic to a specific server by its IP address.
+
+#### Example Command:
+```bash
+dig example.com A
+```
+
+This command will return the IPv4 address associated with `example.com`.
+
+---
+
+### 5. **AAAA (IPv6 Address Record)**
+The AAAA record maps a domain name to an IPv6 address. Like the A record, it directs traffic to the domain, but it uses the newer IPv6 protocol.
+
+#### Example Command:
+```bash
+dig example.com AAAA
+```
+
+This will return the IPv6 address associated with `example.com`.
+
+---
+
+## Additional Resources
+
+For more OSINT tools and techniques, you can refer to the GitHub repository: [The Art of Hacking - h4cker OSINT](https://github.com/The-Art-of-Hacking/h4cker/tree/master/osint).
+
+This repository contains various tools and frameworks for Open Source Intelligence gathering (OSINT), including tools for:
+- DNS enumeration
+- WHOIS lookups
+- Web crawling
+- Social media scraping
+- And more.
 
 ---
 
