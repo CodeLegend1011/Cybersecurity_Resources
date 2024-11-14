@@ -304,4 +304,60 @@ sudo tshark host 192.168.78.142
 
 ---
 
+### TCPDump and Wireshark: Capturing and Analyzing Network Traffic
 
+**Objective**: Use `tcpdump` to capture network traffic, save it to a file, and analyze it with Wireshark.
+
+---
+
+### Part 1: Capture and Save Network Traffic with TCPDump
+
+**Step 1**: Start TCPDump
+1. Open a terminal.
+2. Check network interfaces with:
+   ```bash
+   ifconfig
+   ```
+3. Identify your primary interface (e.g., `eth0`).
+4. Start capturing on this interface with `tcpdump`, saving the output to a `.pcap` file:
+   ```bash
+   sudo tcpdump -i eth0 -s 0 -w packetdump.pcap
+   ```
+   - `-i eth0`: Captures traffic on `eth0`.
+   - `-s 0`: Captures the full packet.
+   - `-w packetdump.pcap`: Writes output to `packetdump.pcap`.
+
+**Step 2**: Generate Network Traffic
+- Open a browser and visit a website (e.g., `google.com` or `skillsforall.com`) to generate HTTP traffic.
+- Press `CTRL+C` in the terminal to stop the capture.
+
+**Step 3**: Verify the Capture
+- List the `.pcap` file to ensure it was saved:
+   ```bash
+   ls packetdump.pcap
+   ```
+
+---
+
+### Part 2: View and Analyze with Wireshark
+
+**Step 1**: Open Wireshark
+- Open Wireshark from the terminal:
+  ```bash
+  wireshark
+  ```
+- In Wireshark, open `packetdump.pcap` from `File -> Open`.
+
+**Step 2**: Analyze DNS Traffic
+1. Filter DNS traffic by typing `dns` in the filter bar.
+2. Observe DNS queries and responses to see requested websites.
+
+**Step 3**: Analyze HTTP Session
+1. Search for `POST` to find HTTP login requests.
+2. Expand `HTML Form URL Encoded` to view login details (e.g., `username` and `password` fields).
+
+3. To examine session cookies:
+   - Search for `302 Found` to locate `Set-Cookie` headers.
+   - Compare `PHPSESSID` values to see if they match between server and client packets.
+
+---
